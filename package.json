@@ -6,6 +6,9 @@
   "scripts": {
     "deploy": "surge -p public -d lablr.surge.sh",
     "start": "hjs-dev-server --config webpack.config.js",
+    "build": "set NODE_ENV=production && webpack",
+    "yolo": "npm run commit && npm run build && npm run deploy",
+    "build": "NODE_ENV=production webpack",
     "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
