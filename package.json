@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "deploy": "surge -p public -d lablr.surge.sh",
+    "start": "hjs-dev-server --config webpack.config.js",
     "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
