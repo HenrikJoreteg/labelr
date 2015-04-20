@@ -1,10 +1,11 @@
-import app from './app'
+import app from 'ampersand-app'
 import Router from 'ampersand-router'
 import qs from 'qs'
 import React from 'react'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
 import Layout from './layout'
+import xhr from 'xhr'
 
 export default Router.extend({
   renderPage (Page, opts) {
@@ -41,6 +42,15 @@ export default Router.extend({
   },
 
   authCallback (code) {
-    console.log('code from redirect', code)
+    xhr({
+      url: 'https://labelr-dev.herokuapp.com/authenticate/' + code,
+      json: true
+    }, (err, resp, body) => {
+      if (err) {
+        console.error('bad code')
+      }
+      app.me.token = body.token
+      this.redirectTo('/repos')
+    })
   }
 })
