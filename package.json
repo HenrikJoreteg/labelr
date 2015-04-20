@@ -19,7 +19,7 @@
     "babel-loader": "^5.0.0",
     "css-loader": "^0.10.1",
     "file-loader": "^0.8.1",
-    "hjs-webpack": "^1.6.0",
+    "hjs-webpack": "^1.8.0",
     "react": "^0.13.2",
     "react-hot-loader": "^1.2.5",
     "style-loader": "^0.10.2",
