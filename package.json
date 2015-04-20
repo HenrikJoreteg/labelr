@@ -1,0 +1,29 @@
+{
+  "name": "lablr",
+  "version": "1.0.0",
+  "description": "Building a thing.",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "surge -p public -d lablr.surge.sh",
+    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags"
+  },
+  "author": "Henrik Joreteg <henrik@andyet.net>",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer-stylus": "^0.5.0",
+    "babel-core": "^5.1.11",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.10.1",
+    "file-loader": "^0.8.1",
+    "hjs-webpack": "^1.6.0",
+    "react": "^0.13.2",
+    "react-hot-loader": "^1.2.5",
+    "style-loader": "^0.10.2",
+    "stylus-loader": "^1.1.0",
+    "surge": "^0.11.1",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.8.5",
+    "webpack-dev-server": "^1.8.0",
+    "yeticss": "^6.0.3"
+  }
+}
