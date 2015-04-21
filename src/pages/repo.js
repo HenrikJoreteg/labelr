@@ -1,5 +1,6 @@
 import React from 'react'
 import ampersandReactMixin from 'ampersand-react-mixin'
+import Label from '../components/label'
 
 export default React.createClass({
     mixins: [ampersandReactMixin],
@@ -13,7 +14,7 @@ export default React.createClass({
               <p>Create New Label</p>
               <ul>
                 {labels.map((label) =>
-                    <li key={label.name}>{label.name}</li>
+                    <Label key={label.name} label={label}/>
                 )}
               </ul>
             </div>
