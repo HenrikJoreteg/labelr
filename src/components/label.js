@@ -15,6 +15,8 @@ export default React.createClass({
   onEditClick (e) {
     e.preventDefault()
 
+    debugger;
+
     const {label} = this.props
 
     label.editing = !label.editing
