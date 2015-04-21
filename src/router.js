@@ -60,11 +60,14 @@ export default Router.extend({
       json: true
     }, (err, resp, body) => {
       if (err) {
+        this.renderPage(MessagePage, {title: 'Sorry', body: 'did not work'})
         console.error('bad code')
       }
       app.me.token = body.token
       this.redirectTo('/repos')
     })
+
+    this.renderPage(MessagePage, {title: 'Logging into GitHub'})
   },
 
   logout () {
