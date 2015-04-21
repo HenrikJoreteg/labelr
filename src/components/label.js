@@ -15,11 +15,13 @@ export default React.createClass({
   onEditClick (e) {
     e.preventDefault()
 
-    debugger;
-
     const {label} = this.props
 
     label.editing = !label.editing
+
+    if (!label.editing) {
+      this.setState(this.getInitialState())
+    }
   },
 
   onDeleteClick () {
@@ -29,21 +31,23 @@ export default React.createClass({
   render () {
     const {label} = this.props
     const {color, name} = this.state
+    const backgroundColor = `#${color}`
+    const styles = {backgroundColor}
 
     if (label.editing) {
       return (
-       <form className='label'>
-         <span className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
-         <input name='name'/>
-         <input name='color'/>
+       <form className='label' onSubmit={this.onFormSubmit}>
+         <span style={styles} className='label-color avatar avatar-small avatar-rounded'>&nbsp;</span>
+         <input value={name} onChange={this.onChangeName} name='name'/>
+         <input value={color} onChange={this.onChangeColor} name='color'/>
          <button type='submit' className='button button-small'>Save</button>
-         <button type='button' className='button button-small button-unstyled'>cancel</button>
+         <button onClick={this.onEditClick} type='button' className='button button-small button-unstyled'>cancel</button>
        </form>
       )
     } else {
       return (
         <div className='label'>
-          <span style={{backgroundColor: '#' + label.color}} className='label-color'>&nbsp;</span>
+          <span style={styles} className='label-color'>&nbsp;</span>
           <span>{label.name}</span>
           <button onClick={this.onEditClick} className='octicon octicon-pencil'></button>
           <button onClick={this.onDeleteClick} className='octicon octicon-x'></button>
