@@ -12,7 +12,14 @@ export default Model.extend(githubApiMixin, {
 
     session: {
         editing: 'boolean',
-        saved: 'boolean'
+        saved: {
+            type: 'boolean',
+            default: true
+        }
+    },
+
+    isNew () {
+        return !this.saved
     },
 
     update (newAttributes) {

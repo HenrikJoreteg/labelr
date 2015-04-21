@@ -20,7 +20,11 @@ export default React.createClass({
     label.editing = !label.editing
 
     if (!label.editing) {
-      this.setState(this.getInitialState())
+      if (label.saved) {
+        this.setState(this.getInitialState())
+      } else {
+        label.collection.remove(label)
+      }
     }
   },
 
@@ -41,7 +45,12 @@ export default React.createClass({
 
     const {label} = this.props
 
-    label.update(this.state)
+    if (label.saved) {
+      label.update(this.state)
+    } else {
+      label.save(this.state)
+      label.saved = true
+    }
     label.editing = false
   },
 
