@@ -4,14 +4,25 @@ import qs from 'qs'
 import React from 'react'
 import PublicPage from './pages/public'
 import ReposPage from './pages/repos'
+import MessagePage from './pages/message'
 import Layout from './layout'
 import xhr from 'xhr'
 
+const auth = function (name) {
+  return function () {
+    if (app.me.isLoggedIn) {
+      this[name].apply(this, arguments)
+    } else {
+      this.redirectTo('/')
+    }
+  }
+}
+
 export default Router.extend({
-  renderPage (Page, opts) {
+  renderPage (Page, opts = {}) {
     const Main = (
       <Layout>
-        <Page/>
+        <Page {...opts}/>
       </Layout>
     )
 
@@ -20,9 +31,11 @@ export default Router.extend({
 
   routes: {
     '': 'public',
-    'repos': 'repos',
+    'repos': auth('repos', 'super-user'),
     'login': 'login',
-    'auth/callback?code=:code': 'authCallback'
+    'logout': 'logout',
+    'auth/callback?code=:code': 'authCallback',
+    '*404': 'fourOhFour'
   },
 
   public () {
@@ -52,5 +65,14 @@ export default Router.extend({
       app.me.token = body.token
       this.redirectTo('/repos')
     })
+  },
+
+  logout () {
+    window.localStorage.clear()
+    window.location = '/'
+  },
+
+  fourOhFour () {
+    this.renderPage(MessagePage, {title: '404', body: 'nothing to see here'})
   }
 })
