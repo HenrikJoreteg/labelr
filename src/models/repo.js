@@ -1,5 +1,6 @@
 import Model from 'ampersand-model'
 import githubApiMixin from '../helpers/github-api-mixin'
+import Labels from './labels'
 
 export default Model.extend(githubApiMixin, {
     url () {
@@ -11,6 +12,10 @@ export default Model.extend(githubApiMixin, {
         name: 'string',
         full_name: 'string',
         description: 'string'
+    },
+
+    collections: {
+        labels: Labels
     },
 
     derived: {
