@@ -4,7 +4,7 @@
   "description": "Building a thing.",
   "main": "index.js",
   "scripts": {
-    "deploy": "surge -p public -d lablr.surge.sh",
+    "deploy": "surge -p public -d lablr-2.surge.sh",
     "start": "hjs-dev-server --config webpack.config.js",
     "prebuild": "rm -rf public && mkdir public",
     "build": "NODE_ENV=production webpack",

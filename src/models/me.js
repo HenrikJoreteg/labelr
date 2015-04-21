@@ -1,6 +1,16 @@
 import Model from 'ampersand-model'
 
 export default Model.extend({
+  url: 'https://api.github.com/user',
+
+  ajaxConfig () {
+    return {
+      headers: {
+        'Authorization': 'token ' + this.token
+      }
+    }
+  },
+
   initialize () {
     const token = window.localStorage.token
 
