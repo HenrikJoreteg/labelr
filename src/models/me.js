@@ -1,14 +1,12 @@
 import Model from 'ampersand-model'
+import Repos from './repos'
+import githubMixin from '../helpers/github-api-mixin'
 
-export default Model.extend({
+export default Model.extend(githubMixin, {
   url: 'https://api.github.com/user',
 
-  ajaxConfig () {
-    return {
-      headers: {
-        'Authorization': 'token ' + this.token
-      }
-    }
+  collections: {
+    repos: Repos
   },
 
   initialize () {
