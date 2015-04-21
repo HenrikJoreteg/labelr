@@ -7,5 +7,9 @@ export default Model.extend(githubApiMixin, {
     props: {
         name: 'string',
         color: 'string'
+    },
+
+    session: {
+        editing: 'boolean'
     }
 })

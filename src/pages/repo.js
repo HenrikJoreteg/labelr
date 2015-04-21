@@ -14,7 +14,7 @@ export default React.createClass({
               <p>Create New Label</p>
               <ul>
                 {labels.map((label) =>
-                    <Label key={label.name} label={label}/>
+                    <Label key={label.name} label={label} />
                 )}
               </ul>
             </div>
