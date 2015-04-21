@@ -25,6 +25,10 @@ export default Model.extend(githubApiMixin, {
                 return '/repos/' + this.full_name
             }
         }
-    }
+    },
 
+    fetch () {
+        Model.prototype.fetch.apply(this, arguments)
+        this.labels.fetch()
+    }
 })

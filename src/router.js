@@ -50,7 +50,6 @@ export default Router.extend({
 
   repoDetail (name, repoName) {
     const repo = app.me.repos.getByFullName(name + '/' + repoName)
-    repo.labels.fetch()
     this.renderPage(RepoDetail, {repo, labels: repo.labels})
   },
 
