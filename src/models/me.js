@@ -24,7 +24,8 @@ export default Model.extend({
   },
 
   props: {
-    token: 'string'
+    token: 'string',
+    login: 'string'
   },
 
   derived: {

@@ -1,7 +1,10 @@
 import React from 'react'
 import InternalNav from './components/internal-nav'
+import ampersandReactMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
+  mixins: [ampersandReactMixin],
+
   render () {
     const {me} = this.props;
 
