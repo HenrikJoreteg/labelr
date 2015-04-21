@@ -16,6 +16,8 @@ export default Model.extend(githubMixin, {
       this.token = token
     }
 
+    this.on('change:isLoggedIn', this.fetchAll)
+
     this.on('change:token', () => {
       window.localStorage.token = this.token
     })
@@ -32,6 +34,13 @@ export default Model.extend(githubMixin, {
       fn () {
         return !!this.token
       }
+    }
+  },
+
+  fetchAll () {
+    if (this.isLoggedIn) {
+      this.fetch();
+      this.repos.fetch();
     }
   }
 })
