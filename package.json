@@ -1,6 +1,6 @@
 {
   "name": "lablr",
-  "version": "1.22.0",
+  "version": "1.23.0",
   "description": "Building a thing.",
   "main": "index.js",
   "scripts": {
