@@ -24,6 +24,27 @@ export default React.createClass({
     }
   },
 
+  onChangeName (e) {
+    this.setState({
+      name: e.target.value
+    })
+  },
+
+  onChangeColor (e) {
+    this.setState({
+      color: e.target.value
+    })
+  },
+
+  onFormSubmit (e) {
+    e.preventDefault()
+
+    const {label} = this.props
+
+    label.update(this.state)
+    label.editing = false
+  },
+
   onDeleteClick () {
 
   },
