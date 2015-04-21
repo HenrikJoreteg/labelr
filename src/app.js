@@ -1,4 +1,5 @@
 import styles from './styles/main.styl'
+import icons from 'octicons/octicons/octicons.css'
 import Router from './router'
 import app from 'ampersand-app'
 import Me from './models/me'
