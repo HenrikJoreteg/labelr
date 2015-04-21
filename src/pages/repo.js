@@ -5,13 +5,28 @@ import Label from '../components/label'
 export default React.createClass({
     mixins: [ampersandReactMixin],
 
+    onCreateClick (e) {
+        e.preventDefault()
+
+        const {repo} = this.props
+
+        repo.labels.add({
+            name: '',
+            color: '',
+            editing: true,
+            saved: false
+        }, {at: 0})
+    },
+
     render () {
         const {repo, labels} = this.props
 
         return (
             <div className='container'>
               <h1>{repo.full_name} Labels</h1>
-              <p>Create New Label</p>
+              <p>
+                <button onClick={this.onCreateClick} className='button'>Create New Label</button>
+              </p>
               <ul>
                 {labels.map((label) =>
                     <Label key={label.name} label={label} />

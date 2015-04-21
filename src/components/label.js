@@ -45,8 +45,18 @@ export default React.createClass({
     label.editing = false
   },
 
-  onDeleteClick () {
+  onDeleteClick (e) {
+    e.preventDefault()
 
+    const {label} = this.props
+    const {collection} = label
+    const old = collection.models.slice()
+
+    label.destroy({
+      error () {
+        collection.reset(old)
+      }
+    })
   },
 
   render () {
