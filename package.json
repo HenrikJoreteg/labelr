@@ -1,19 +1,8 @@
 {
   "name": "lablr",
-  "version": "1.35.0",
   "description": "Building a thing.",
-  "main": "index.js",
-  "scripts": {
-    "deploy": "surge -p public -d lablr-2.surge.sh",
-    "start": "hjs-dev-server --config webpack.config.js",
-    "prebuild": "rm -rf public && mkdir public",
-    "build": "NODE_ENV=production webpack",
-    "yolo": "npm run commit && npm run build && npm run deploy",
-    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags",
-    "lint": "standard"
-  },
+  "version": "1.35.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
-  "license": "MIT",
   "dependencies": {
     "ampersand-app": "^1.0.3",
     "ampersand-model": "^5.0.3",
@@ -40,6 +29,17 @@
     "webpack-dev-server": "^1.8.0",
     "xhr": "^2.0.1",
     "yeticss": "^6.0.3"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack",
+    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags",
+    "deploy": "surge -p public -d lablr-2.surge.sh",
+    "lint": "standard",
+    "prebuild": "rm -rf public && mkdir public",
+    "start": "hjs-dev-server --config webpack.config.js",
+    "yolo": "npm run commit && npm run build && npm run deploy"
   },
   "standard": {
     "ignore": [
