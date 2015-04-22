@@ -9,7 +9,8 @@
     "prebuild": "rm -rf public && mkdir public",
     "build": "NODE_ENV=production webpack",
     "yolo": "npm run commit && npm run build && npm run deploy",
-    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags"
+    "commit": "git add --all && git commit -am \"$(date)\" && npm version minor && git push origin master --tags",
+    "lint": "standard"
   },
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "license": "MIT",
@@ -30,6 +31,7 @@
     "qs": "^2.4.1",
     "react": "^0.13.2",
     "react-hot-loader": "^1.2.5",
+    "standard": "^3.7.0",
     "style-loader": "^0.10.2",
     "stylus-loader": "^1.1.0",
     "surge": "^0.11.1",
@@ -38,5 +40,10 @@
     "webpack-dev-server": "^1.8.0",
     "xhr": "^2.0.1",
     "yeticss": "^6.0.3"
+  },
+  "standard": {
+    "ignore": [
+      "public/**"
+    ]
   }
 }

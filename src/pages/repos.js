@@ -5,7 +5,7 @@ export default React.createClass({
   mixins: [ampersandReactMixin],
 
   render () {
-    const {repos} = this.props;
+    const {repos} = this.props
 
     return (
       <div className='container'>
