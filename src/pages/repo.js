@@ -3,36 +3,43 @@ import ampersandReactMixin from 'ampersand-react-mixin'
 import Label from '../components/label'
 
 export default React.createClass({
-    mixins: [ampersandReactMixin],
+  displayName: 'RepoPage',
 
-    onCreateClick (e) {
-        e.preventDefault()
+  mixins: [ampersandReactMixin],
 
-        const {repo} = this.props
+  propTypes: {
+    repo: React.PropTypes.object.isRequired,
+    labels: React.PropTypes.object.isRequired
+  },
 
-        repo.labels.add({
-            name: '',
-            color: '',
-            editing: true,
-            saved: false
-        }, {at: 0})
-    },
+  onCreateClick (e) {
+    e.preventDefault()
 
-    render () {
-        const {repo, labels} = this.props
+    const {repo} = this.props
 
-        return (
-            <div className='container'>
-              <h1>{repo.full_name} Labels</h1>
-              <p>
-                <button onClick={this.onCreateClick} className='button'>Create New Label</button>
-              </p>
-              <ul>
-                {labels.map((label) =>
-                    <Label key={label.name} label={label} />
-                )}
-              </ul>
-            </div>
-        )
-    }
+    repo.labels.add({
+      name: '',
+      color: '',
+      editing: true,
+      saved: false
+    }, {at: 0})
+  },
+
+  render () {
+    const {repo, labels} = this.props
+
+    return (
+      <div className='container'>
+        <h1>{repo.full_name} Labels</h1>
+        <p>
+        <button onClick={this.onCreateClick} className='button'>Create New Label</button>
+        </p>
+        <ul>
+        {labels.map((label) =>
+          <Label key={label.name} label={label} />
+        )}
+        </ul>
+      </div>
+    )
+  }
 })

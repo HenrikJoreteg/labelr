@@ -3,10 +3,17 @@ import InternalNav from './components/internal-nav'
 import ampersandReactMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
+  displayName: 'Layout',
+
   mixins: [ampersandReactMixin],
 
+  propTypes: {
+    me: React.PropTypes.object.isRequired,
+    children: React.PropTypes.element.isRequired
+  },
+
   render () {
-    const {me} = this.props;
+    const {me} = this.props
 
     return (
       <InternalNav>

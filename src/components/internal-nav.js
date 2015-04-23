@@ -3,6 +3,12 @@ import app from 'ampersand-app'
 import LocalLinks from 'local-links'
 
 export default React.createClass({
+  displayName: 'InternalNav',
+
+  propTypes: {
+    children: React.PropTypes.element.isRequired
+  },
+
   onClick (event) {
     const pathname = LocalLinks.getLocalPathname(event)
 

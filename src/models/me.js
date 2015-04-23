@@ -39,8 +39,8 @@ export default Model.extend(githubMixin, {
 
   fetchAll () {
     if (this.isLoggedIn) {
-      this.fetch();
-      this.repos.fetch();
+      this.fetch()
+      this.repos.fetch()
     }
   }
 })

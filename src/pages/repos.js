@@ -2,7 +2,13 @@ import React from 'react'
 import ampersandReactMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
+  displayName: 'ReposPage',
+
   mixins: [ampersandReactMixin],
+
+  propTypes: {
+    repos: React.PropTypes.object.isRequired
+  },
 
   render () {
     const {repos} = this.props

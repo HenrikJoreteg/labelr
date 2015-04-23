@@ -2,6 +2,8 @@ import React from 'react'
 import InternalNav from '../components/internal-nav'
 
 export default React.createClass({
+  displayName: 'PublicPage',
+
   render () {
     return (
       <InternalNav>

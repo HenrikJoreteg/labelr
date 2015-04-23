@@ -3,9 +3,9 @@ import Label from './label'
 import githubApiMixin from '../helpers/github-api-mixin'
 
 export default Collection.extend(githubApiMixin, {
-    url () {
-        return this.parent.url() + '/labels'
-    },
+  url () {
+    return this.parent.url() + '/labels'
+  },
 
-    model: Label
+  model: Label
 })
